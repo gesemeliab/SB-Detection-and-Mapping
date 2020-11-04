@@ -1,5 +1,5 @@
 # SB-Detection-and-Mapping (SBDM)
-SBDetection: An image processing + Deeplearning approach to detect and map strawberries with a robotic platform 
+SBDM: An image processing + Deeplearning approach to detect and map strawberries with a robotic platform 
 
 **Authors:** Gesem Gudiño, Andres Montes de Oca, and Gerardo Flores.
 
