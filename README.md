@@ -68,7 +68,7 @@ You can find the data base used for this work in (https://github.com/gesemeliab/
 
  ## h5
  
- An already created database for training purpose, this file contains 520 images of green and red strawberries with shape (128,128,3), they are in the A channel of the CIE LAB color space and pixels are between 0 and 1.
+ An already created database for training purpose, this file contains 520 labeled images of green and red strawberries with shape (128,128,3), they are in the A channel of the CIE LAB color space and pixels are between 0 and 1.
  
  ## images
  
