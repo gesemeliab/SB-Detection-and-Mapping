@@ -32,7 +32,7 @@ After compilation pleas do:
 
 source ~/sbdm_ws/devel/setup.bash
 
-## Run
+# Run
 
 To run this code you first have to have connected your ZED stereo camera with its respective SDK. You can find it in (https://www.stereolabs.com/developers/release/)
 
@@ -62,6 +62,18 @@ To visualize the rovers trajectory you may also run the hector_trajectory_server
 
     rosrun hector_trajectory_server hector_trajectory_server
 
+# Data Base
+
+You can find the data base used for this work in (https://github.com/gesemeliab/SB-Detection-and-Mapping/tree/main/database) where you will find two directories.
+
+ ## h5
+ 
+ An already created database for training purpose, this file contains 520 images of green and red strawberries with shape (128,128,3), they are in the A channel of the CIE LAB color space and pixels are between 0 and 1.
+ 
+ ## images
+ 
+ In images directory you will find another two sub directories which are the complete natural RGB images taken in farmlands and also the already cropped images of only red and green strawberries, aslo in RGB.
+ 
 
 
 
