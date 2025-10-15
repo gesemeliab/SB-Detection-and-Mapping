@@ -117,23 +117,3 @@ class PlotterConfig:
         rospy.loginfo(f"Detection topic: {self.detection_topic}")
         rospy.loginfo(f"Marker topic: {self.marker_topic}")
         rospy.loginfo("=======================================")
-
-
-class BroadcasterConfig:
-    """Configuration container for TF broadcaster parameters."""
-    
-    def __init__(self, node_handle: rospy.NodeHandle):
-        """Initialize broadcaster configuration."""
-        # Transform parameters
-        self.rover_height = rospy.get_param('~rover_height', 0.13)
-        self.camera_offset_x = rospy.get_param('~camera_offset_x', 0.0)
-        self.camera_offset_y = rospy.get_param('~camera_offset_y', -0.21)
-        self.camera_offset_z = rospy.get_param('~camera_offset_z', 0.26)
-        
-        # Frame IDs
-        self.world_frame = rospy.get_param('~world_frame', 'world')
-        self.rover_frame = rospy.get_param('~rover_frame', 'rover')
-        self.camera_frame = rospy.get_param('~camera_frame', 'camera')
-        
-        # Topic
-        self.odom_topic = rospy.get_param('~odom_topic', '/zedm/zed_node/odom')
