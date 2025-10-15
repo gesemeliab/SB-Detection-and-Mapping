@@ -1,0 +1,93 @@
+<launch>
+  <!-- 
+    Launch file for strawberry detection and mapping system
+    
+    This launch file starts all necessary nodes for the complete pipeline:
+    - TF broadcaster for coordinate transforms
+    - Strawberry detection node
+    - Visualization plotter node
+  -->
+
+  <!-- Detection parameters -->
+  <arg name="model_path" default="$(find sb_detection)/models/strawberry_classifier.h5" 
+       doc="Path to trained CNN model" />
+  <arg name="confidence_threshold" default="0.98" 
+       doc="Minimum confidence for valid detection" />
+  <arg name="publish_debug" default="true" 
+       doc="Whether to publish debug visualization images" />
+
+  <!-- Camera parameters -->
+  <arg name="focal_length" default="1396.91" 
+       doc="ZED camera focal length in pixels" />
+  
+  <!-- Topic remapping -->
+  <arg name="rgb_topic" default="/zedm/zed_node/left/image_rect_color" />
+  <arg name="depth_topic" default="/zedm/zed_node/depth/depth_registered" />
+  <arg name="odom_topic" default="/zedm/zed_node/odom" />
+
+  <!-- TF Broadcaster Node -->
+  <node pkg="broadcaster" type="tf_broadcaster_node" name="tf_broadcaster" output="screen">
+    <param name="world_frame" value="world" />
+    <param name="rover_frame" value="rover" />
+    <param name="camera_frame" value="camera" />
+    <param name="odom_topic" value="$(arg odom_topic)" />
+    <param name="rover_height" value="0.13" />
+    <param name="camera_offset_x" value="0.0" />
+    <param name="camera_offset_y" value="-0.21" />
+    <param name="camera_offset_z" value="0.26" />
+  </node>
+
+  <!-- Strawberry Detection Node -->
+  <node pkg="sb_detection" type="detection_node.py" name="strawberry_detector" 
+        output="screen" required="true">
+    <!-- Model parameters -->
+    <param name="model_path" value="$(arg model_path)" />
+    <param name="confidence_threshold" value="$(arg confidence_threshold)" />
+    <param name="cnn_input_size" value="128" />
+    
+    <!-- Camera parameters -->
+    <param name="focal_length" value="$(arg focal_length)" />
+    
+    <!-- Detection parameters -->
+    <param name="lab_a_threshold" value="165" />
+    <param name="morphology_kernel_size" value="15" />
+    <param name="central_region_ratio" value="0.05" />
+    
+    <!-- Topic configuration -->
+    <param name="rgb_topic" value="$(arg rgb_topic)" />
+    <param name="depth_topic" value="$(arg depth_topic)" />
+    <param name="odom_topic" value="$(arg odom_topic)" />
+    <param name="debug_image_topic" value="debug_image" />
+    <param name="detection_topic" value="sb_coordinates" />
+    
+    <!-- Visualization -->
+    <param name="publish_debug_image" value="$(arg publish_debug)" />
+    <param name="debug_image_size" value="480" />
+  </node>
+
+  <!-- Strawberry Plotter Node -->
+  <node pkg="plotting_points" type="plotter_node.py" name="strawberry_plotter" 
+        output="screen">
+    <!-- Marker parameters -->
+    <param name="marker_scale" value="0.05" />
+    <param name="marker_color_r" value="1.0" />
+    <param name="marker_color_g" value="0.0" />
+    <param name="marker_color_b" value="0.0" />
+    
+    <!-- Calibration offsets -->
+    <param name="offset_x" value="0.545" />
+    <param name="offset_y" value="-0.495" />
+    <param name="offset_z" value="0.39" />
+    
+    <!-- Topics -->
+    <param name="detection_topic" value="/sb_coordinates" />
+    <param name="marker_topic" value="strawberry_markers" />
+    <param name="world_frame" value="world" />
+  </node>
+
+  <!-- Optional: RViz visualization -->
+  <arg name="rviz" default="false" doc="Launch RViz for visualization" />
+  <node if="$(arg rviz)" pkg="rviz" type="rviz" name="rviz" 
+        args="-d $(find broadcaster)/config/config.rviz" />
+
+</launch>

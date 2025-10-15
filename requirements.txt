@@ -1,0 +1,38 @@
+# Python dependencies for SB-Detection-and-Mapping
+
+# Deep Learning
+tensorflow>=2.4.0,<3.0.0
+keras>=2.4.0
+
+# Computer Vision
+opencv-python>=4.5.0
+opencv-contrib-python>=4.5.0
+
+# Numerical Computing
+numpy>=1.19.0
+
+# ROS Python dependencies (installed via ROS, listed for reference)
+# rospy
+# sensor_msgs
+# nav_msgs
+# geometry_msgs
+# cv_bridge
+# message_filters
+# visualization_msgs
+# tf
+
+# Development dependencies (optional)
+# Type checking
+mypy>=0.910
+
+# Linting
+pylint>=2.12.0
+flake8>=4.0.0
+
+# Testing
+pytest>=6.2.0
+pytest-cov>=3.0.0
+
+# Documentation
+sphinx>=4.0.0
+sphinx-rtd-theme>=1.0.0

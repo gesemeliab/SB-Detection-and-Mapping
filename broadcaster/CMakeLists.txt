@@ -1,12 +1,10 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(broadcaster)
 
-## Compile as C++11, supported in ROS Kinetic and newer
-# add_compile_options(-std=c++11)
+## Compile as C++11 for modern features
+add_compile_options(-std=c++11 -Wall -Wextra)
 
 ## Find catkin macros and libraries
-## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
-## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
   nav_msgs
@@ -200,5 +198,27 @@ include_directories(
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
 
+## Build original broadcaster (legacy)
 add_executable(broadcaster src/broadcaster.cpp)
 target_link_libraries(broadcaster ${catkin_LIBRARIES})
+
+## Build refactored TF broadcaster node
+add_executable(tf_broadcaster_node src/tf_broadcaster_node.cpp)
+target_link_libraries(tf_broadcaster_node ${catkin_LIBRARIES})
+
+## Install executables
+install(TARGETS broadcaster tf_broadcaster_node
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+## Install launch files
+install(DIRECTORY launch/
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
+  FILES_MATCHING PATTERN "*.launch"
+)
+
+## Install config files
+install(DIRECTORY config/
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/config
+  FILES_MATCHING PATTERN "*.rviz"
+)
