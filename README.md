@@ -76,7 +76,7 @@ SBDM implements an end-to-end pipeline for agricultural robotics:
 
 ---
 
-## 📦 Installation
+## Installation
 
 For detailed installation instructions, see the [**INSTALLATION.md**](./INSTALLATION.md) guide.
 
@@ -88,7 +88,7 @@ For detailed installation instructions, see the [**INSTALLATION.md**](./INSTALLA
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Minimal Start (Single Command)
 
@@ -183,7 +183,7 @@ rosservice call /strawberry_detector/set_logger_level "logger: 'rosout' level: '
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 For detailed system architecture, design patterns, and component diagrams, see the [**ARCHITECTURE.md**](./ARCHITECTURE.md) guide.
 
@@ -246,7 +246,7 @@ print(f"Labels shape: {labels.shape}")    # (520,)
 ```
 ---
 
-## 📜 License
+## License
 
 This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](./LICENSE) file for details.
 
