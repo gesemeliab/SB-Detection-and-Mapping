@@ -18,19 +18,15 @@ SBDM is a professional robotic perception system that combines LAB color space f
 
 ## Table of Contents
 
-- [Overview](#-overview)
-- [Features](#-features)
-- [System Requirements](#-system-requirements)
+- [Overview](#overview)
+- [Features](#features)
+- [System Requirements](#system-requirements)
 - [Installation](#-installation)
 - [Quick Start](#-quick-start)
-- [Configuration](#-configuration)
-- [Architecture](#-architecture)
+- [Configuration](#configuration)
+- [Architecture](#️-architecture)
 - [Dataset](#-dataset)
-- [Usage Examples](#-usage-examples)
-- [Troubleshooting](#-troubleshooting)
-- [Documentation](#-documentation)
-- [Contributing](#-contributing)
-- [Citation](#-citation)
+- [License](#-license)
 
 ---
 
@@ -80,12 +76,21 @@ SBDM implements an end-to-end pipeline for agricultural robotics:
 
 ---
 
-## Installation
+## 📦 Installation
 
+For detailed installation instructions, see the [**INSTALLATION.md**](./INSTALLATION.md) guide.
+
+**Quick Setup:**
+1. Install ROS Melodic (Ubuntu 18.04) or Noetic (Ubuntu 20.04)
+2. Install ZED SDK and ROS wrapper
+3. Clone and build this repository
+4. Install Python dependencies: `pip install -r requirements.txt`
 
 ---
 
-## Quick Start### Minimal Start (Single Command)
+## 🚀 Quick Start
+
+### Minimal Start (Single Command)
 
 ```bash
 # 1. Connect ZED camera
@@ -178,7 +183,20 @@ rosservice call /strawberry_detector/set_logger_level "logger: 'rosout' level: '
 
 ---
 
-## Architecture
+## 🏗️ Architecture
+
+For detailed system architecture, design patterns, and component diagrams, see the [**ARCHITECTURE.md**](./ARCHITECTURE.md) guide.
+
+**High-Level Overview:**
+- **Broadcaster Node** (C++): TF frame management (world → rover → camera)
+- **Detection Node** (Python): LAB filtering + CNN classification + 3D localization
+- **Plotter Node** (Python): RViz marker visualization of detected strawberries
+
+**Key Design Patterns:**
+- Modular OOP architecture with SOLID principles
+- Configuration management via ROS parameter server
+- Synchronized message filtering for RGB-D data
+- Error handling and logging throughout
 
 ---
 
