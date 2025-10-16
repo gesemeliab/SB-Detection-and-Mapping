@@ -1,38 +1,82 @@
-# Python dependencies for SB-Detection-and-Mapping
+# =============================================================================
+# SB-Detection-and-Mapping - Python Dependencies
+# =============================================================================
+#
+# This file lists all Python packages required for the strawberry detection
+# and mapping system. Install with: pip3 install -r requirements.txt
+#
+# =============================================================================
 
-# Deep Learning
-tensorflow>=2.4.0,<3.0.0
-keras>=2.4.0
+# -----------------------------------------------------------------------------
+# Core Dependencies (Required)
+# -----------------------------------------------------------------------------
+
+# Deep Learning Framework
+tensorflow>=2.4.0,<3.0.0     # CNN model inference, GPU support optional
+keras>=2.4.0                  # High-level neural networks API
 
 # Computer Vision
-opencv-python>=4.5.0
-opencv-contrib-python>=4.5.0
+opencv-python>=4.5.0          # Image processing and transformations
+opencv-contrib-python>=4.5.0  # Additional OpenCV modules
 
 # Numerical Computing
-numpy>=1.19.0
+numpy>=1.19.0,<2.0.0         # Array operations and numerical computation
 
-# ROS Python dependencies (installed via ROS, listed for reference)
-# rospy
-# sensor_msgs
-# nav_msgs
-# geometry_msgs
-# cv_bridge
-# message_filters
-# visualization_msgs
-# tf
+# -----------------------------------------------------------------------------
+# ROS Python Dependencies
+# -----------------------------------------------------------------------------
+# These are typically installed via ROS and should be available in your ROS
+# environment. They are listed here for reference and documentation purposes.
+#
+# Install via: sudo apt install ros-<distro>-<package>
+#
+# Required ROS packages:
+#   - ros-<distro>-rospy
+#   - ros-<distro>-sensor-msgs
+#   - ros-<distro>-nav-msgs
+#   - ros-<distro>-geometry-msgs
+#   - ros-<distro>-cv-bridge
+#   - ros-<distro>-tf
+#   - ros-<distro>-visualization-msgs
 
-# Development dependencies (optional)
-# Type checking
-mypy>=0.910
+# -----------------------------------------------------------------------------
+# Development Dependencies (Optional)
+# -----------------------------------------------------------------------------
+# Uncomment the section below if you want development tools
 
-# Linting
-pylint>=2.12.0
-flake8>=4.0.0
+# Type Checking
+# mypy>=0.910                 # Static type checker for Python
+
+# Code Quality
+# pylint>=2.12.0              # Python code analysis
+# flake8>=4.0.0               # Style guide enforcement
+# black>=22.0.0               # Code formatter
 
 # Testing
-pytest>=6.2.0
-pytest-cov>=3.0.0
+# pytest>=6.2.0               # Testing framework
+# pytest-cov>=3.0.0           # Coverage plugin for pytest
+# pytest-mock>=3.6.0          # Mocking plugin
 
 # Documentation
-sphinx>=4.0.0
-sphinx-rtd-theme>=1.0.0
+# sphinx>=4.0.0               # Documentation generator
+# sphinx-rtd-theme>=1.0.0     # ReadTheDocs theme for Sphinx
+# sphinx-autodoc-typehints>=1.12.0  # Type hints in documentation
+
+# Utilities
+# ipython>=7.20.0             # Enhanced Python shell
+# jupyter>=1.0.0              # Interactive notebooks
+
+# -----------------------------------------------------------------------------
+# Version Compatibility Notes
+# -----------------------------------------------------------------------------
+#
+# - TensorFlow 2.4+ required for model compatibility
+# - Python 3.6+ required (3.8+ recommended)
+# - OpenCV 4.5+ for best performance
+# - Compatible with ROS Melodic (Ubuntu 18.04) and Noetic (Ubuntu 20.04)
+#
+# GPU Support (Optional but recommended):
+#   Install CUDA 10.1+ and cuDNN 7.6+ for GPU acceleration
+#   Follow: https://www.tensorflow.org/install/gpu
+#
+# -----------------------------------------------------------------------------

@@ -1,31 +1,24 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>sb_detection</name>
-  <version>0.0.0</version>
-  <description>The sb_detection package</description>
+  <version>2.0.0</version>
+  <description>
+    Production-ready strawberry detection system using computer vision and deep learning.
+    Implements LAB color space filtering, CNN classification, and 3D localization for 
+    autonomous agricultural robotics applications.
+  </description>
 
-  <!-- One maintainer tag required, multiple allowed, one person per tag -->
-  <!-- Example:  -->
-  <!-- <maintainer email="jane.doe@example.com">Jane Doe</maintainer> -->
-  <maintainer email="lapyr@todo.todo">lapyr</maintainer>
+  <maintainer email="your.email@example.com">Gesem Gudiño</maintainer>
+  
+  <license>GPLv3</license>
+  
+  <url type="website">https://github.com/gesemeliab/SB-Detection-and-Mapping</url>
+  <url type="repository">https://github.com/gesemeliab/SB-Detection-and-Mapping.git</url>
+  <url type="bugtracker">https://github.com/gesemeliab/SB-Detection-and-Mapping/issues</url>
 
-
-  <!-- One license tag required, multiple allowed, one license per tag -->
-  <!-- Commonly used license strings: -->
-  <!--   BSD, MIT, Boost Software License, GPLv2, GPLv3, LGPLv2.1, LGPLv3 -->
-  <license>TODO</license>
-
-
-  <!-- Url tags are optional, but multiple are allowed, one per tag -->
-  <!-- Optional attribute type can be: website, bugtracker, or repository -->
-  <!-- Example: -->
-  <!-- <url type="website">http://wiki.ros.org/sb_detection</url> -->
-
-
-  <!-- Author tags are optional, multiple are allowed, one per tag -->
-  <!-- Authors do not have to be maintainers, but could be -->
-  <!-- Example: -->
-  <!-- <author email="jane.doe@example.com">Jane Doe</author> -->
+  <author email="your.email@example.com">Gesem Gudiño</author>
+  <author>Andres Montes de Oca</author>
+  <author>Gerardo Flores</author>
 
 
   <!-- The *depend tags are used to specify dependencies -->
